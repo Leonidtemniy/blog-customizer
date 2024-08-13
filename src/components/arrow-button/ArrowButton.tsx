@@ -6,7 +6,7 @@ import clsx from 'clsx';
 export type OnClick = () => void;
 
 interface ArrowButtonProps {
-	onClick: OnClick;
+	onClick: (data: boolean) => void;
 	isOpen: boolean;
 }
 
@@ -18,7 +18,7 @@ export const ArrowButton: React.FC<ArrowButtonProps> = ({
 	const handleEnterKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
 		if (event.key === 'Enter') {
 			event.preventDefault();
-			onClick();
+			onClick(!isOpen);
 		}
 	};
 	return (
@@ -30,7 +30,7 @@ export const ArrowButton: React.FC<ArrowButtonProps> = ({
 					: 'Закрыть форму параметров статьи'
 			}
 			tabIndex={0}
-			onClick={onClick}
+			onClick={() => onClick(!isOpen)}
 			onKeyDown={handleEnterKeyDown}
 			className={clsx(styles.container, { [styles.container_open]: isOpen })}>
 			<img
