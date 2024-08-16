@@ -21,11 +21,11 @@ export const useOutsideClickClose = ({
 				onChange?.(false);
 			}
 		};
-
-		window.addEventListener('click', handleClick);
+		//поменял маусивенты
+		window.addEventListener('mousedown', handleClick);
 
 		return () => {
-			window.removeEventListener('click', handleClick);
+			window.removeEventListener('mousedown', handleClick);
 		};
 	}, [onClose, onChange, isOpen]);
 };

@@ -7,14 +7,16 @@ const meta: Meta<typeof ArrowButton> = {
 };
 
 export default meta;
+
 type Story = StoryObj<typeof ArrowButton>;
 
 export const ArrowButtonStory: Story = {
 	render: () => {
 		return (
-			<>
-				<ArrowButton />
-			</>
+			<ArrowButton
+				onClick={() => console.log('Arrow button clicked')}
+				isOpen={false}
+			/>
 		);
 	},
 };
